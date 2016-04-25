@@ -1,0 +1,73 @@
+@import "var";//导入var.less
+.pad(@padding){
+  padding-left:@padding;
+  padding-right: @padding;
+}
+.container {
+  & {
+    display: block;
+    height: auto;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    .pad(@padding);
+  }
+  &-fluid {
+    height: auto;
+    .pad(@padding)
+  }
+  & .row, &-fluid .row {
+    margin-left: -@padding;
+    margin-right: -@padding;
+    height: auto;
+  }
+  & .row:after, &-fluid .row:after {
+    content: "";
+    display: block;
+    clear: both;
+    height: 0;
+    line-height: 0;
+    font-size: 0;
+  }
+}
+.grid(@type,@i:0) when (@i<=@cols){
+  .col-@{type}-@{i}{
+    width:100%/@cols*@i;
+    display: block;
+    float: left;
+    .pad(@padding)
+  }
+  .grid(@type,@i+1)
+}
+.grid(xs);
+.g(@width,@name){
+  @media screen and (min-width:@width) {
+    .container{
+      width: @width - @padding*2;
+    }
+    .grid(@name);
+  }
+
+}
+.g(@smscreen,sm);
+.g(@mdscreen,md);
+.g(@lgscreen,lg);
+@media screen and (max-width: @smscreen){
+  .hidden-xs{
+    display: none!important;
+  }
+}
+@media screen and (min-width: @smscreen) and (max-width:@mdscreen){
+  .hidden-sm{
+    display: none!important;
+  }
+}
+@media screen and (min-width: @mdscreen) and (max-width:@lgscreen){
+  .hidden-md{
+    display: none!important;
+  }
+}
+@media screen and (mim-width: @lgscreen){
+  .hidden-lg{
+    display: none!important;
+  }
+}
