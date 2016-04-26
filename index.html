@@ -2,21 +2,23 @@
 <html lang="zh">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <meta name="renderer" content="webkit">
     <title>Apple</title>
     <link rel="stylesheet" href="css/response.min.css">
     <link rel="stylesheet" href="css/public.min.css">
     <link rel="stylesheet" href="css/index.min.css">
+    <link rel="stylesheet" href="css/swiper-3.3.1.min.css">
     <script src="js/jquery.js"></script>
+    <script src="js/swiper-3.3.1.jquery.min.js"></script>
     <script src="js/index.js"></script>
 </head>
 <body>
     <div class="container-fuild nav-box clf">
         <div class="min-nav container">
             <a href="#">
-                <img src="images/btn.png" alt="">
+                <img src="images/btn.png" alt="" class="chosedaohang">
             </a>
             <a href="#">
                 <img src="images/logo.png" alt="">
@@ -55,26 +57,20 @@
             </a>
         </div>
     </div>
-    <div class="banner container-fluid clf">
-        <div class="img container">
-            <div class="images container-fluid" style="background-image: url(images/banner1.jpg);"></div>
-            <div class="images container-fluid" style="background-image: url(images/banner2.jpg);"></div>
-            <div class="images container-fluid" style="background-image: url(images/banner3.jpg);"></div>
-            <div class="images container-fluid" style="background-image: url(images/banner4.jpg);"></div>
+    <div class="swiper-container banner">
+        <div class="swiper-wrapper img">
+            <div class="swiper-slide images" style="background-image: url(images/banner1.jpg);"></div>
+            <div class="swiper-slide images" style="background-image: url(images/banner2.jpg);"></div>
+            <div class="swiper-slide images" style="background-image: url(images/banner3.jpg);"></div>
+            <div class="swiper-slide images" style="background-image: url(images/banner4.jpg);"></div>
         </div>
-        <div class="leftjt">
-            <img src="images/zuoJt.png" alt="">
-        </div>
-        <div class="rightjt">
-            <img src="images/youJt.png" alt="">
-        </div>
-        <div class="btn">
-            <div class="hot"></div>
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+        <!-- Add Arrows -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </div>
+
     <div class="four container-fluid clf">
         <div class="f4 clf col-lg-3 col-md-6 col-sm-6 col-xs-12" style="background:url(images/1.jpg) no-repeat center center"></div>
         <div class="f4 clf col-lg-3 col-md-6 col-sm-6 col-xs-12" style="background:url(images/2.jpg) no-repeat center center"></div>
@@ -200,5 +196,15 @@
             </div>
         </div>
     </div>
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            pagination: '.swiper-pagination',
+            autoplay : 5000,
+            nextButton: '.swiper-button-next',
+            prevButton: '.swiper-button-prev',
+            spaceBetween: 0,
+            loop:true
+        });
+    </script>
 </body>
 </html>
